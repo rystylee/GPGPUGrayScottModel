@@ -12,8 +12,6 @@ uniform float u_kill;
 uniform float u_dA;
 uniform float u_dB;
 uniform float u_dt;
-uniform vec2 u_resolution;
-
 
 vec2 calcLaplacian(const in sampler2DRect prevBuffer, const in vec2 uv)
 {

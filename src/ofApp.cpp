@@ -32,6 +32,11 @@ void ofApp::setup()
     gui.add(dA.set("dA", 1.0, 0.0, 1.0));
     gui.add(dB.set("dB", 0.5, 0.0, 1.0));
     gui.add(dt.set("dt", 1.0, 0.0, 1.0));
+    gui.add(color1.set("color1", ofFloatColor(0.0, 0.0, 0.0, 0.0), ofFloatColor(0.0, 0.0, 0.0, 0.0), ofFloatColor(1.0, 1.0, 1.0, 1.0)));
+    gui.add(color2.set("color2", ofFloatColor(0.0, 1.0, 0.0, 0.2), ofFloatColor(0.0, 0.0, 0.0, 0.0), ofFloatColor(1.0, 1.0, 1.0, 1.0)));
+    gui.add(color3.set("color3", ofFloatColor(1.0, 1.0, 0.0, 0.21), ofFloatColor(0.0, 0.0, 0.0, 0.0), ofFloatColor(1.0, 1.0, 1.0, 1.0)));
+    gui.add(color4.set("color4", ofFloatColor(1.0, 0.0, 0.0, 0.4), ofFloatColor(0.0, 0.0, 0.0, 0.0), ofFloatColor(1.0, 1.0, 1.0, 1.0)));
+    gui.add(color5.set("color5", ofFloatColor(1.0, 1.0, 1.0, 0.6), ofFloatColor(0.0, 0.0, 0.0, 0.0), ofFloatColor(1.0, 1.0, 1.0, 1.0)));
 }
 
 //--------------------------------------------------------------
@@ -48,7 +53,6 @@ void ofApp::update()
     simulateShader.setUniform1f("u_dA", dA);
     simulateShader.setUniform1f("u_dB", dB);
     simulateShader.setUniform1f("u_dt", dt);
-    simulateShader.setUniform2f("u_resolution", w, h);
     pingPong.src->draw(0, 0, w, h);
     simulateShader.end();
     pingPong.dst->end();
@@ -61,6 +65,11 @@ void ofApp::draw()
 {
     renderShader.begin();
     renderShader.setUniformTexture("u_tex", pingPong.dst->getTexture(), 0);
+    renderShader.setUniform4f("color1", color1);
+    renderShader.setUniform4f("color2", color2);
+    renderShader.setUniform4f("color3", color3);
+    renderShader.setUniform4f("color4", color4);
+    renderShader.setUniform4f("color5", color5);
     ofDrawRectangle(0, 0, w, h);
     renderShader.end();
 

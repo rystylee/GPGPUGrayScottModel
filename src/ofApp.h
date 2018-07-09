@@ -24,4 +24,9 @@ public:
     ofParameter<float> dA;
     ofParameter<float> dB;
     ofParameter<float> dt;
+    ofParameter<ofFloatColor> color1;
+    ofParameter<ofFloatColor> color2;
+    ofParameter<ofFloatColor> color3;
+    ofParameter<ofFloatColor> color4;
+    ofParameter<ofFloatColor> color5;
 };
